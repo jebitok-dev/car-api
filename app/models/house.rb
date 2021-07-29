@@ -1,5 +1,5 @@
 class House < ApplicationRecord
-    has_many :favorites, dependent :destroy
+  has_many :favorites
 
-    validate_presence_of :title, :created_by
+  validate_presence_of :title, :created_by
 end

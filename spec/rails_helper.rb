@@ -1,6 +1,6 @@
 # require database cleaner at the top level
 require 'database_cleaner'
-require "spec_helper"
+require 'spec_helper'
 
 # [...]
 # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
@@ -41,4 +41,3 @@ RSpec.configuration do |config|
   config.include RequestSpecHelper, type: :request
   # [...]
 end
- 
