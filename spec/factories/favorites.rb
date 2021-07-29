@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :item do
+  factory :favorite do
     name { Faker::StarWars.character }
-    done false
+    done {false}
     house_id nil
   end
 end
