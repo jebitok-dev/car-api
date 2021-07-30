@@ -2,12 +2,12 @@ class HousesController < ApplicationController
   before_action :set_house, only: %i[show update destroy]
 
   def index
-    @houses = House.all
+    @houses = current_user.houses
     json_response(@houses)
   end
 
   def create
-    @house = House.create!(house_params)
+    @house = current_user.houses.create!(house_params)
     json_response(@house, :created)
   end
 
@@ -28,7 +28,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.permit(:title, :created_by)
+    params.permit(:title)
   end
 
   def set_house
