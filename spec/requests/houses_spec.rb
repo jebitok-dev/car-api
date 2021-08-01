@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Houses API', type: :request do
-  let(:user) {create(:user)}
+  let(:user) { create(:user) }
   let!(:houses) { create_list(:house, 10) }
   let(:house_id) { houses.first.id }
-  let(:headers) {valid_headers}
+  let(:headers) { valid_headers }
 
   describe 'GET /houses' do
     before { get '/houses', params: {}, headers: headers }
@@ -63,7 +63,7 @@ RSpec.describe 'Houses API', type: :request do
     end
 
     context 'when the request is invalid' do
-      let(:invalid_attributes) {{title: nil}.to_json}
+      let(:invalid_attributes) { { title: nil }.to_json }
       before { post '/houses', params: invalid_attributes, headers: headers }
 
       it 'returns status code 422' do

@@ -1,41 +1,20 @@
 class FavoritesController < ApplicationController
-  before_action :set_house
-  before_action :set_house_favorite, only: %i[show update destroy]
+  before_action :verify_authenticity_token
+  include FavoritesHelper
 
   def index
-    json_response(@house.favorites)
+    @favorites = Favorite.all
+    render json: @favorites
   end
 
-  def show
-    json_response(@favorites)
+  def new
+    @favorite = Favorite.new
   end
 
   def create
-    @house.favorites.create!(favorite_params)
-    json_response(@house, :created)
-  end
+    @favorite = Favorite.new(favorite_params)
+    @favorite.save
 
-  def update
-    @favorite.update(favorite_params)
-    head :no_content
-  end
-
-  def destroy
-    @favorite.destroy
-    head :no_content
-  end
-
-  private
-
-  def favorite_params
-    params.permit(:name, :done)
-  end
-
-  def set_house
-    @house = House.find(params[:house_id])
-  end
-
-  def set_house_favorite
-    @favorite = @house.favorites.find_by!(id: params[:id]) if @house
+    render json: {success: 'A favorite was successfully added!'}
   end
 end

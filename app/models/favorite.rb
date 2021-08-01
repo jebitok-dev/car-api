@@ -1,5 +1,3 @@
 class Favorite < ApplicationRecord
-  belongs_to :house
-
-  validate_presence_of :name
+  belongs_to :user, optional: true
 end
