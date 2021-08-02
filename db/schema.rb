@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_075531) do
+ActiveRecord::Schema.define(version: 2021_08_02_084101) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.string "username"
+    t.string "model"
+    t.string "date"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "name"
+    t.string "model"
+    t.string "reviews"
+    t.string "price"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.string "name"
