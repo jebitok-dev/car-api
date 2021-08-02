@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:all) do
-    User.destroy_all
-    User.create(name: 'foobar', email: 'foo@gmail.com', password: '$2a$12$bMGfKhJ8AE2M2')
+  it 'is valid with valid attributes' do
+    expect(User.new).to be_valid
   end
 
-  it 'is valid with valid attributes' do
-    expect(User.all.count).to be_eql 2
-  end
+  it 'is not valid without a name'
+  it 'is not valid without a email'
+  it 'is not valid without a password_digest'
 end

@@ -8,10 +8,10 @@ gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'sass-rails', '~> 5.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'puma', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -24,12 +24,12 @@ gem 'puma', '~> 5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'mini_racer'
+gem 'rails_12factor', group: :production
 gem 'rubocop_auto_corrector', '~> 0.4.2'
 gem 'rubocop-faker'
 gem 'rubocop-rspec', require: false
-gem 'mini_racer'
 gem 'sprockets'
-gem 'rails_12factor', group: :production
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -37,7 +37,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
 end
