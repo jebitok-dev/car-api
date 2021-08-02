@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FavoritesController, type: :controller do
+RSpec.describe AppointmentsController, type: :controller do
     describe 'post a question route', type: :request do
         before(:all) do
             User.destroy_all
@@ -8,8 +8,8 @@ RSpec.describe FavoritesController, type: :controller do
         end
 
         before do 
-            post '/favorites', params: {
-                favorite: {username: 'marion', }
+            post '/appointments', params: {
+                appointment: {username: 'marion', }
             }
         end
     end
