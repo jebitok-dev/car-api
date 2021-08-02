@@ -7,7 +7,7 @@ RSpec.describe CarsController, type: :controller do
     end
 
     it 'assigns @cars' do
-      car = Car.create(name: '2020 TESLA MODEL', model: 'WHITE Y', reviews: '4', price: '$65784')
+      car = Car.create(name: 'Volkswagen', model: 'MK7 Golf GTI', reviews: '4', price: '$34,915')
       get :index
       expect(assigns(:cars)).to eq([car])
     end

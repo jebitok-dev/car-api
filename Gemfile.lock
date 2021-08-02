@@ -62,7 +62,7 @@ GEM
       zeitwerk (~> 2.3)
     ast (2.4.2)
     bcrypt (3.1.16)
-    bootsnap (1.7.6)
+    bootsnap (1.7.7)
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
@@ -84,16 +84,17 @@ GEM
     faker (2.18.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.3)
-    globalid (0.5.1)
+    globalid (0.5.2)
       activesupport (>= 5.0)
     hirb (0.7.3)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jwt (2.2.3)
+    libv8-node (15.14.0.1-x86_64-linux)
     listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    loofah (2.10.0)
+    loofah (2.11.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -101,6 +102,8 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
+    mini_racer (0.4.0)
+      libv8-node (~> 15.14.0.0)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
@@ -110,7 +113,7 @@ GEM
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
-    puma (5.3.2)
+    puma (5.4.0)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -140,6 +143,11 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (6.1.4)
       actionpack (= 6.1.4)
       activesupport (= 6.1.4)
@@ -194,11 +202,22 @@ GEM
     rubocop_auto_corrector (0.4.2)
       rubocop (>= 1.13.0)
     ruby-progressbar (1.11.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (5.1.0)
+      railties (>= 5.2.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
     simple_command (0.1.0)
     spring (2.1.1)
-    sprockets (4.0.2)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.2)
@@ -206,6 +225,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
+    tilt (2.0.10)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
@@ -227,19 +247,23 @@ DEPENDENCIES
   hirb (~> 0.7.3)
   jwt
   listen (~> 3.3)
+  mini_racer
   pg (>= 0.18, < 2.0)
   puma (~> 5.0)
   rails (~> 6.1.4)
   rails-controller-testing
+  rails_12factor
   rspec-rails (~> 5.0, >= 5.0.1)
   rubocop
   rubocop-faker
   rubocop-rails
   rubocop-rspec
   rubocop_auto_corrector (~> 0.4.2)
+  sass-rails (~> 5.0)
   shoulda-matchers (~> 5.0)
   simple_command
   spring
+  sprockets
   tzinfo-data
 
 RUBY VERSION
