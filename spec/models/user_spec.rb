@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it { should have_many(:houses) }
+  before(:all) do
+    User.destroy_all
+    User.create(name: 'foobar', email: 'foo@gmail.com', password: '$2a$12$bMGfKhJ8AE2M2')
+  end
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:email) }
-  it(should(validate_presence_of(:password_digest)))
+  it 'is valid with valid attributes' do
+    expect(User.all.count).to be_eql 2
+  end
 end
