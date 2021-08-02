@@ -86,6 +86,7 @@ GEM
     ffi (1.15.3)
     globalid (0.5.1)
       activesupport (>= 5.0)
+    hirb (0.7.3)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jwt (2.2.3)
@@ -129,6 +130,10 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.4)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -190,6 +195,7 @@ GEM
     ruby-progressbar (1.11.0)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
+    simple_command (0.1.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -218,10 +224,12 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails (~> 6.2.0)
   faker
+  hirb (~> 0.7.3)
   jwt
   listen (~> 3.3)
   puma (~> 5.0)
   rails (~> 6.1.4)
+  rails-controller-testing
   rspec-rails (~> 5.0, >= 5.0.1)
   rubocop
   rubocop-faker
@@ -229,6 +237,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop_auto_corrector (~> 0.4.2)
   shoulda-matchers (~> 5.0)
+  simple_command
   spring
   sqlite3 (~> 1.4)
   tzinfo-data

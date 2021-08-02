@@ -32,6 +32,7 @@ gem 'rubocop-rspec', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
@@ -52,4 +53,6 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'hirb', '~> 0.7.3'
+gem 'simple_command'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
