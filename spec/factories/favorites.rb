@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :favorite do
       user
-      house
+      car
     end
   end
