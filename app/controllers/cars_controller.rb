@@ -11,7 +11,7 @@ class CarsController < ApplicationController
     json_response(@car, :created)
   end
 
-  def show 
+  def show
     json_response(@car)
   end
 
@@ -34,5 +34,4 @@ class CarsController < ApplicationController
   def set_car
     @car = Car.find(params[:id])
   end
-
 end

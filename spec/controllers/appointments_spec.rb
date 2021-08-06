@@ -1,32 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe AppointmentsController, type: :controller do
-  describe 'post a question route', type: :request do
-    before(:all) do
-      User.destroy_all
-      User.create(name: 'sharon', email: 'sharon@gmail.com', password: '@1234$%8976', id: 1)
+RSpec.describe ApplicationController, type: :controller do
+  let!(:user) { create(:user) }
+  # set headers for authorization
+  let(:headers) { { 'Authorization' => token_generator(user.id) } }
+  let(:invalid_headers) { { 'Authorization' => nil } }
+
+  describe '#authorize_request' do
+    context 'when auth token is passed' do
+      before { allow(request).to receive(:headers).and_return(headers) }
+
+      # private method authorize_request returns current user
+      it 'sets the current user' do
+        expect(subject.instance_eval { authorize_request }).to eq(user)
+      end
     end
 
-    before do
-      post '/appointments', params: {
-        appointment: { username: 'foobar', model: 'MK7 Golf GTI', date: '3/8/2021', city: 'Nakuru', user_id: '1' }
-      }
-    end
+    context 'when auth token is not passed' do
+      before do
+        allow(request).to receive(:headers).and_return(invalid_headers)
+      end
 
-    it 'returns the username' do
-      expect(JSON.parse(response.body)['username']).to eq('foobar')
-    end
-
-    it 'returns the model' do
-      expect(JSON.parse(response.body)['model']).to eq('MK7 Golf GTI')
-    end
-
-    it 'returns the date' do
-      expect(JSON.parse(response.body)['date']).to eq('3/8/2021')
-    end
-
-    it 'returns the city' do
-      expect(JSON.parse(response.body)['city']).to eq('Nakuru')
+      it 'raises MissingToken error' do
+        expect { subject.instance_eval { authorize_request } }
+          .to raise_error(ExceptionHandler::MissingToken, /Missing token/)
+      end
     end
   end
 end
