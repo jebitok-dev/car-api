@@ -1,16 +1,38 @@
 class CarsController < ApplicationController
-  include CarsHelper
+  before_action :set_car, only: %i[show update destroy]
+
   def index
     @cars = Car.all
-    render json: @cars
-  end
-
-  def new
-    @car = Car.new
+    json_response(@cars)
   end
 
   def create
-    @car = Car.new(car_params)
-    @car.save
+    @car = current_user.cars.create!(car_params)
+    json_response(@car, :created)
   end
+
+  def show 
+    json_response(@car)
+  end
+
+  def update
+    @car.update(car_params)
+    head :no_content
+  end
+
+  def destroy
+    @car.destroy
+    head :no_content
+  end
+
+  private
+
+  def car_params
+    params.permit(:name, :model, :reviews, :price, :image)
+  end
+
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
 end

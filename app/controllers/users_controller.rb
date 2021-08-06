@@ -1,35 +1,17 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  before_action :authorized, only: [:auto_login]
+  skip_before_action :authorize_request, only :create
 
   def create
-    user = User.create(user_params)
-    if @user
-      token = encode_token({ user_id: @user_id })
-      render json: { user: @user, token: token, status: :created }
-    else
-      render json: { error: 'Invalid name or password' }
-    end
-  end
-
-  def login
-    @user = User.find_by(email: params[:user][:email])
-
-    if @user&.authenticate(params[:user][:password])
-      token = encode_token({ user_id: @user.id })
-      render json: { user: @user, token: token, logged_in: true }
-    else
-      render json: { error: 'Invalid name or password' }, status: 401
-    end
-  end
-
-  def auto_login
-    render json: @user
+    user = User.create!(user_params)
+    id = user.id
+    auth_token = AuthenticateUser.new(user.email, user.password).call
+    response = {message: Message.account_creates, auth_token: auth_token, id: id}
+    json_response(response, :created)
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.permit(:name, :email, :password, :password_confirmation)
   end
 end
