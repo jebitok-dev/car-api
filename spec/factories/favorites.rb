@@ -1,6 +1,6 @@
 FactoryBot.define do
-    factory :favorite do
-      user
-      car
-    end
+  factory :favorite do
+    user
+    car
   end
+end
