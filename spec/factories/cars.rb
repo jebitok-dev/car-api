@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :house do
+  factory :car do
     price { '36000' }
     model { 'Models Here' }
     reviews { 'Reviews about the car' }
