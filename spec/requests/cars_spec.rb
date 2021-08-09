@@ -63,7 +63,7 @@ RSpec.describe 'Cars', type: :request do
       before { post '/cars', params: valid_attributes, headers: headers }
 
       it 'creates a car' do
-        expect(json['about']).to eq('VW Golf GTI Clubsport')
+        expect(json['model']).to eq('VW Golf GTI Clubsport')
       end
 
       it 'returns status code 201' do
@@ -71,7 +71,7 @@ RSpec.describe 'Cars', type: :request do
       end
     end
 
-    context 'when the request is invalid (only About is present)' do
+    context 'when the request is invalid (only Model is present)' do
       before { post '/cars', params: { model: 'VW Golf GTI Clubsport' }.to_json, headers: headers }
 
       it 'returns status code 422' do
