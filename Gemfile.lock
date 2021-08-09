@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    api_guard (0.5.2)
+      jwt (~> 2.2)
     ast (2.4.2)
     bcrypt (3.1.16)
     bootsnap (1.7.7)
@@ -117,6 +119,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (0.4.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.1.4)
@@ -238,6 +241,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  api_guard
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   byebug
@@ -250,6 +254,7 @@ DEPENDENCIES
   mini_racer
   pg (>= 0.18, < 2.0)
   puma (~> 5.0)
+  rack-cors (~> 0.4.0)
   rails (~> 6.1.4)
   rails-controller-testing
   rails_12factor
