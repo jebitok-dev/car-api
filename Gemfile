@@ -8,12 +8,12 @@ gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'api_guard'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'puma', '~> 5.0'
-gem 'sass-rails', '~> 5.0'
 gem 'rack-cors', '~> 0.4.0'
-gem 'api_guard'
+gem 'sass-rails', '~> 5.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'

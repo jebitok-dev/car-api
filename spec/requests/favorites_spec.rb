@@ -35,32 +35,32 @@ RSpec.describe 'Favorites API', type: :request do
     end
   end
 
-    # Test suite for GET /users/:user_id/favorites/:id
-    describe 'GET /users/:user_id/favorites/:id' do
-      before { get "/users/#{user_id}/favorites/#{id}", params: {}, headers: headers }
-  
-      context 'when user favorite exists' do
-        it 'returns status code 200' do
-          expect(response).to have_http_status(200)
-        end
-  
-        it 'returns the favorite' do
-          expect(json['id']).to eq(id)
-        end
+  # Test suite for GET /users/:user_id/favorites/:id
+  describe 'GET /users/:user_id/favorites/:id' do
+    before { get "/users/#{user_id}/favorites/#{id}", params: {}, headers: headers }
+
+    context 'when user favorite exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
       end
-  
-      context 'when user favorite does not exist' do
-        let(:id) { 0 }
-  
-        it 'returns status code 404' do
-          expect(response).to have_http_status(404)
-        end
-  
-        it 'returns a not found message' do
-          expect(response.body).to match(/Couldn't find Favorite/)
-        end
+
+      it 'returns the favorite' do
+        expect(json['id']).to eq(id)
       end
     end
+
+    context 'when user favorite does not exist' do
+      let(:id) { 0 }
+
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
+
+      it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find Favorite/)
+      end
+    end
+  end
 
   describe 'POST /users/:user_id/favorites' do
     let(:valid_attributes) { { car_id: car_id.to_s }.to_json }
