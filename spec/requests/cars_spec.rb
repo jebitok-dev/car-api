@@ -56,7 +56,7 @@ RSpec.describe 'Cars', type: :request do
   describe 'POST /cars' do
     # valid payload
     let(:valid_attributes) do
-      { price: '36000', model: 'VW Golf GTI Clubsport', reviews: 'fast car', image: 'golfmk.png', name: 'Golf' }.to_json
+      { price: '36000', model: 'VW Golf GTI Clubsport', reviews: 'fast car', picture: 'golfmk.png', name: 'Golf' }.to_json
     end
 
     context 'when the request is valid' do
@@ -80,8 +80,7 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Model can't be blank, Reviews can't be blank, Image can't be blank,
-          Price can't be blank, Name can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Reviews can't be blank, Price can't be blank/)
       end
     end
 
@@ -94,13 +93,12 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Model can't be blank, Reviews can't be blank, Image can't be blank, Price can't be blank,
-          Name can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
       end
     end
 
-    context 'when the request is invalid (only Image is present)' do
-      before { post '/cars', params: { image: 'url car' }.to_json, headers: headers }
+    context 'when the request is invalid (only Picture is present)' do
+      before { post '/cars', params: { picture: 'golf.png' }.to_json, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -108,8 +106,7 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Model can't be blank, Reviews can't be blank,
-          Price can't be blank, Name can't be blank/)
+          .to match(/"message":"Validation failed: Name can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
       end
     end
 
@@ -122,8 +119,7 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Model can't be blank, Reviews can't be blank,
-          Image can't be blank, Name can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Model can't be blank, Reviews can't be blank/)
       end
     end
 
@@ -136,8 +132,7 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Model can't be blank, Reviews can't be blank,
-          Image can't be blank, Price can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
       end
     end
   end

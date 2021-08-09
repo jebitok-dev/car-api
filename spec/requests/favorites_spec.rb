@@ -4,7 +4,7 @@ RSpec.describe 'Favorites API', type: :request do
   let!(:user) { create(:user) }
   let!(:car) { create(:car) }
   let!(:favorites) { create_list(:favorite, 20, car_id: car.id, user_id: user.id) }
-  let!(:id) { favorites.first.id }
+  let(:id) { favorites.first.id }
   let!(:user_id) { user.id }
   let(:car_id) { car.id }
   let(:headers) { valid_headers }
