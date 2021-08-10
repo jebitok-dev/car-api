@@ -12,8 +12,7 @@ Building Ruby on Rails API
 
 - Ruby -v 2.7.0
 - Rails -v 6.1.1
-- Guard
-- Bootstrap
+- API Guard
 - PostgreSQL
 - RSPEC
 
@@ -45,10 +44,7 @@ To get this project up and running locally, you must already have ruby and rails
 
 ### Run Tests
 
-- `$ rspec spec/models/user_spec.rb `
-- `$ rspec spec/models/opinion_spec.rb`
-- `$ rspec spec/feature/user_login_spec.rb`
-- `$ rspec spec/feature/opinion_create_spec.rb`
+- `$ bundle exec rspec `
 
 ## Author
 
