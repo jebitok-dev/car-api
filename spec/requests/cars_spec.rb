@@ -81,7 +81,8 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Reviews can't be blank, Price can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank,
+           Reviews can't be blank, Price can't be blank/)
       end
     end
 
@@ -94,7 +95,8 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank,
+          Model can't be blank, Reviews can't be blank, Price can't be blank/)
       end
     end
 
@@ -107,7 +109,8 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Name can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
+          .to match(/"message":"Validation failed: Name can't be blank, Model can't be blank,
+          Reviews can't be blank, Price can't be blank/)
       end
     end
 
@@ -120,7 +123,8 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Model can't be blank, Reviews can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Name can't be blank, Model can't be blank,
+           Reviews can't be blank/)
       end
     end
 
@@ -133,7 +137,8 @@ RSpec.describe 'Cars', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/"message":"Validation failed: Picture can't be blank, Model can't be blank, Reviews can't be blank, Price can't be blank/)
+          .to match(/"message":"Validation failed: Picture can't be blank, Model can't be blank,
+           Reviews can't be blank, Price can't be blank/)
       end
     end
   end
