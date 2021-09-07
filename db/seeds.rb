@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@car = current_user.cars.create!(car_params)
+{
+    id: 1,
+    model: 'VW Golf',
+    price: 36000,
+    reviews: 'fast & sleek model',
+    picture: 'https://unsplash.com/photos/tWPJ3euclZY',
+    name: 'Doe',
+    created_at: '2021-13-08',
+    updated_at: '2021-13-08',
+};
+@car = current_user.cars.create!(car_params)
+{
+    id: 2,
+    model: 'MK7 Golf',
+    price: 34000,
+    reviews: 'fast & sleek model',
+    picture: 'https://unsplash.com/photos/WyZh1SAPLQw',
+    name: 'Doe',
+    created_at: '2021-13-08',
+    updated_at: '2021-13-08',
+  };
